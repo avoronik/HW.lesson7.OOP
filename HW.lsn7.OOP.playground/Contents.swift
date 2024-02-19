@@ -16,7 +16,7 @@ import UIKit
  Уделите особое внимание выбору, что использовать: класс или структуру, var или let, MARK +
  модификаторы доступа.*/
 
-class person{
+class Person{
  
     var name: String
     var surname: String
@@ -31,7 +31,7 @@ class person{
 }
 
 
-class student: person{
+class Student: Person{
     var classNumber: Int
     var subjectMark: [(String, Int)]
     
@@ -47,12 +47,12 @@ class student: person{
     }
 }
 
-let studentTest = student.init(name: "sasha", surname: "voronik", age: 14)
+let studentTest = Student.init(name: "sasha", surname: "voronik", age: 14)
 print(studentTest.studentInfo())
 
 
 
-class director: person{
+class Director: Person{
     var expirience: Int
     var rating: Double
     
@@ -63,7 +63,7 @@ class director: person{
     }
 }
 
-class adress{
+class Adress{
     var streetName: String
     var Coordinates: [(x: Double, y: Double)]
     
@@ -73,13 +73,13 @@ class adress{
     }
 }
 
-class school {
-    var student: [student]
+class School {
+    var student: [Student]
     var schoolName: String
-    var adress: adress
-    var director: director
+    var adress: Adress
+    var director: Director
     
-    init(student: [student], schoolName: String, adress: adress, director: director) {
+    init(student: [Student], schoolName: String, adress: Adress, director: Director) {
         self.student = student
         self.schoolName = schoolName
         self.adress = adress
@@ -93,13 +93,13 @@ class school {
     }
 }
 
-let nastya = student.init(name: "nastya", surname: "voronik", age: 15)
-let ksusha = student.init(name: "ksusha", surname: "morozova", age: 15)
-let masha = student.init(name: "kate", surname: "pitt", age: 16)
+let nastya = Student.init(name: "nastya", surname: "voronik", age: 15)
+let ksusha = Student.init(name: "ksusha", surname: "morozova", age: 15)
+let masha = Student.init(name: "kate", surname: "pitt", age: 16)
 
-let adresss = adress(streetName: "Maple Street", Coordinates: [(x: 26.768768, y: 78.2698569)])
-let direct = director(name: "John", surname: "Lenon", age: 44, expirience: 15, rating: 5.0)
+let adresss = Adress(streetName: "Maple Street", Coordinates: [(x: 26.768768, y: 78.2698569)])
+let direct = Director(name: "John", surname: "Lenon", age: 44, expirience: 15, rating: 5.0)
 
-let testSchool = school(student: [nastya, ksusha, masha], schoolName: "Old School", adress: adresss, director: direct)
+let testSchool = School(student: [nastya, ksusha, masha], schoolName: "Old School", adress: adresss, director: direct)
 
 print(testSchool.schoolInfo())
